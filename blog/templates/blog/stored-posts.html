@@ -1,0 +1,48 @@
+
+
+{% extends "base.html"   %}
+{% load static   %}
+
+
+
+{% block title %} Stored Posts {% endblock %}
+
+{% block css%}
+ <link rel="stylesheet" href="{% static "blog/read-later.css" %}"/> 
+
+
+{% endblock %}
+
+{% block body %}
+
+<section id="stored-posts">
+
+
+    <p>Hey there</p>
+
+    {% if not hasPosts %}
+
+    <p>You dont have liked posts</p>
+    
+    {% else %}
+    <ul>
+
+        {% for post in posts  %}
+        
+        <li>
+            <a href = "posts/{{ post.slug }}"> {{ post.title }} </a>
+        </li>
+        
+        {% endfor %}
+
+    </ul>
+    
+    {% endif %} 
+
+ 
+
+</section>
+
+
+
+{% endblock %}
